@@ -186,7 +186,8 @@ terraform {
 ## Nota Importante
 ### Este proyecto usa un Nat Gateway que tiene costo:
 El costo de un NAT Gateway en AWS es de 0.045 USD por hora y 0.045 USD por GB de datos procesados. También hay un costo por la dirección IPv4 pública si se usa, que es de 0.005 USD por hora por dirección. Estos son valores aproximados.
-### También crea un cluster EKS, en donde el control plane tiene un costo de 0.10 por hora, más el costo del ec2 que use como worker node.
+### También crea un cluster EKS.
+El costo hora del control plane es de 0.10 dólares por hora, más el costo del ec2 que use como worker node.
 
 
 
