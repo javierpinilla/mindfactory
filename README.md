@@ -1,6 +1,16 @@
 # Estructura de carpetas del Proyecto
+
 #### .github/workflow:
   Contiene el workflow para desplegar la app con helm en github actions.
+
+#### Costo_Infraestructura
+  El costo se calculó con la herramienta [Infracost.](https://www.infracost.io/)\
+  En esta carpeta tenemos dos archivos, el Readme con el resultado del calculado desde la consola, y un html exportado desde el mismo comando.\
+  [La docu de Infracost](https://www.infracost.io/docs/)
+
+#### Diagrama_Infraestructura
+  Contiene el diagrama de la infraestructura en pdf creada con [Pluralith](https://www.pluralith.com/)\
+  Se puede consultar la documentación [aquí](https://docs.pluralith.com/)
 
 #### app
   Contiene dos carpetas:\
