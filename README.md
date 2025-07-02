@@ -1,9 +1,9 @@
 # Infraestructura.
 ## Módulos:
-   # * VPC
-   # * ElastiCache (Redis)
-   # * S3.
-   # * EKS.
+   ### VPC
+   ### ElastiCache (Redis)
+   ### S3.
+   ### EKS.
 
 
 # Módulo de VPC.
@@ -95,27 +95,27 @@ terraform destroy
 `├── terraform.tfvars`      # Valores de variables.\
 `├── variables.tf`          # Declaración de variables.\
 `├── outputs.tf`            # Outputs de vpc_id, subnets y sg.\
-`└── README.md`             # Documentación actual.
-`── modules`
-`│   ├── eks`
-`│   │   ├── locals.tf`
-`│   │   ├── main.tf`
-`│   │   ├── outputs.tf`
-`│   │   └── variables.tf`
-`│   ├── elasticache`
-`│   │   ├── locals.tf`
-`│   │   ├── main.tf`
-`│   │   ├── output.tf`
-`│   │   └── variables.tf`
-`│   ├── s3`
-`│   │   ├── locals.tf`
-`│   │   ├── main.tf`
-`│   │   ├── outputs.tf`
-`│   │   └── variables.tf`
-`│   └── vpc`
-`│       ├── locals.tf`
-`│       ├── main.tf`
-`│       ├── outputs.tf`
+`└── README.md`             # Documentación actual.\
+`── modules`\
+`│   ├── eks`\
+`│   │   ├── locals.tf`\
+`│   │   ├── main.tf`\
+`│   │   ├── outputs.tf`\
+`│   │   └── variables.tf`\
+`│   ├── elasticache`\
+`│   │   ├── locals.tf`\
+`│   │   ├── main.tf`\
+`│   │   ├── output.tf`\
+`│   │   └── variables.tf`\
+`│   ├── s3`\
+`│   │   ├── locals.tf`\
+`│   │   ├── main.tf`\
+`│   │   ├── outputs.tf`\
+`│   │   └── variables.tf`\
+`│   └── vpc`\
+`│       ├── locals.tf`\
+`│       ├── main.tf`\
+`│       ├── outputs.tf`\
 `│       └── variables.tf`
 
 
@@ -187,5 +187,5 @@ El costo de un NAT Gateway en AWS es de 0.045 USD por hora y 0.045 USD por GB de
 
 
 
-## [Aquí puedes comparar costos de recursos de `AWS`](https://instances.vantage.sh/)
-## [Terraform Docs `AWS` Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+### [Aquí puedes comparar costos de recursos de `AWS`](https://instances.vantage.sh/)
+### [Terraform Docs `AWS` Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
