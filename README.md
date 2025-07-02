@@ -62,9 +62,7 @@ cd app/charts/nginx-mindfactory
 helm dependency build .
 helm upgrade --install nginx-mindfactory . --namespace mindfactory --create-namespace
 ```
-## 3.- Desplegar la aplicación:
-
-### Consumir la app:
+## 3.- Acceder a la aplicación:
 
 ```bash
 # Obtener la ip del único nodo
@@ -74,7 +72,7 @@ IP_NODO=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="
 # Agregarla al etc/hosts
 echo "$IP_NODO nginx-mindfactory.local" >> /etc/hosts
 
-# Pegarle
+# Acceder
 curl -v http://nginx-mindfactory.local:30080
 ```
 
