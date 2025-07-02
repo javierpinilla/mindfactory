@@ -1,0 +1,35 @@
+name: Deploy mindfactory
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'app/charts/nginx-mindfactory/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    container: 
+      image: alpine/helm:3.12.0
+
+    steps:
+      - name: Checkout codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar kubeconfig
+        run: |
+          mkdir -p ~/.kube
+          echo "$KUBECONFIG_CONTENT" | base64 -d > ~/.kube/config
+          chmod 600 ~/.kube/config
+        env:
+          KUBECONFIG_CONTENT: ${{ secrets.KUBECONFIG }}
+
+      - name: Helm version
+        run: helm version --client
+
+      - name: Deploy mindfactory
+        working-directory: app/charts/nginx-mindfactory
+        run: |
+          helm dependency build .
+          helm upgrade --install nginx-mindfactory . --namespace mindfactory --create-namespace

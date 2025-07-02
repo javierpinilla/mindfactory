@@ -1,0 +1,18 @@
+stages:
+  - deploy
+
+deploy:
+  image: alpine/helm
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      changes:
+        - app/charts/nginx-mindfactory/**
+  before_script:
+    - mkdir -p ~/.kube
+    - echo $KUBECONFIG_CONTENT | base64 -d > ~/.kube/config
+    - export KUBECONFIG=~/.kube/config
+    - helm version --client
+  script:
+    - cd app/charts/nginx-mindfactory
+    - helm dependency build .
+    - helm upgrade --install nginx-mindfactory . --namespace mindfactory --create-namespace

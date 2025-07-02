@@ -1,0 +1,33 @@
+replicaCount: 1
+
+image:
+  repository: nginx
+  tag: latest
+  pullPolicy: IfNotPresent
+
+redis:
+  enabled: true
+  host: "enpoint_redis.xxxx.amazonaws.com"
+  port: 6379
+
+service:
+  internal:
+    enabled: true
+    port: 80
+    targetPort: 80
+
+  external:
+    enabled: true
+    type: NodePort
+    port: 80
+    targetPort: 80
+    nodePort: 30080
+
+configMap:
+  indexHtml: |
+    <html>
+      <body>
+        <h1>Hello World</h1>
+        <p>Esto es un test para mindfactory.</p>
+      </body>
+    </html>

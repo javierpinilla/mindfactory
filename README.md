@@ -66,7 +66,6 @@ helm upgrade --install nginx-mindfactory . --namespace mindfactory --create-name
 
 ```bash
 # Obtener la ip del único nodo
-
 IP_NODO=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
 
 # Agregarla al etc/hosts

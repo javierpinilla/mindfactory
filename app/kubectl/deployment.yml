@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-mindfactory
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-mindfactory
+  template:
+    metadata:
+      labels:
+        app: nginx-mindfactory
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: html-volume
+          mountPath: /usr/share/nginx/html
+      - name: redis-cli
+        image: redis
+        command:
+          - sh
+          - -c
+          - |
+            echo "Nginx no puede consume redis, entonces meto esto en para conectarse a redis."
+            while true; do
+              redis-cli -h ${REDIS_HOST} ping
+              sleep 60
+            done
+        env:
+        - name: REDIS_HOST
+          value: "elasticache_endpoint" # ---> aws_elasticache_cluster.redis.cache_nodes[0].port
+        - name: REDIS_PORT
+          value: "6379"
+      volumes:
+      - name: html-volume
+        configMap:
+          name: nginx-html

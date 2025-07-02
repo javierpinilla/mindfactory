@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-html
+data:
+  data:
+  index.html: {{ .Values.configMap.indexHtml | nindent 4 }}
+  #index.html: |
+  #  <html>
+  #    <body>
+  #      <h1>Hello World</h1>
+  #      <p>Esto es un test para mindfactory.</p>
+  #    </body>
+  #  </html>

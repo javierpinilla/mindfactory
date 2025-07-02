@@ -29,7 +29,7 @@ variable "subnet_private_dbs_cidrs" {
 }
 
 variable "common_tags" {
-  description = "Etiquetas comunes para todos los recursos"
+  description = "Tags comunes, Posibles usos en el billing"
   type        = map(string)
 }
 

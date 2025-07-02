@@ -1,0 +1,49 @@
+# templates/deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-mindfactory
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: nginx-mindfactory
+  template:
+    metadata:
+      labels:
+        app: nginx-mindfactory
+    spec:
+      containers:
+      - name: nginx
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: html-volume
+          mountPath: /usr/share/nginx/html
+
+      {{- if .Values.redis.enabled }} #https://helm.sh/docs/chart_template_guide/control_structures/
+      - name: redis-cli
+        image: redis
+        command:
+          - sh
+          - -c
+          - |
+            echo "Nginx no puede consume redis, entonces meto esto en para conectarse a redis."
+            while true; do
+              redis-cli -h ${REDIS_HOST} ping
+              sleep 60
+            done
+        env:
+        - name: REDIS_HOST
+          value: "{{ .Values.redis.host }}"
+        - name: REDIS_PORT
+          value: "{{ .Values.redis.port }}"
+      {{- end }}
+
+      volumes:
+      - name: html-volume
+        configMap:
+          name: nginx-html

@@ -1,0 +1,31 @@
+{{- if .Values.service.internal.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-mindfactory-service
+spec:
+  selector:
+    app: nginx-mindfactory
+  ports:
+    - protocol: TCP
+      port: {{ .Values.service.internal.port }}
+      targetPort: {{ .Values.service.internal.targetPort }}
+{{- end }}
+---
+{{- if .Values.service.external.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-mindfactory-service-nodeport
+spec:
+  type: {{ .Values.service.external.type }}
+  selector:
+    app: nginx-mindfactory
+  ports:
+    - protocol: TCP
+      port: {{ .Values.service.external.port }}
+      targetPort: {{ .Values.service.external.targetPort }}
+      {{- if and (eq .Values.service.external.type "NodePort") .Values.service.external.nodePort }}
+      nodePort: {{ .Values.service.external.nodePort }}
+      {{- end }}
+{{- end }}
