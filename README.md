@@ -19,11 +19,65 @@
 
 
 ### Docs de ayuda.
-Estructura de control en helm para saber si un valor es true o false
-https://helm.sh/docs/chart_template_guide/control_structures/
-https://stackoverflow.com/questions/62835605/if-clause-in-helm-chart
+Estructura de control en helm para saber si un valor es true o false \
+https://helm.sh/docs/chart_template_guide/control_structures \
+https://stackoverflow.com/questions/62835605/if-clause-in-helm-chart \
 https://pkg.go.dev/text/template
 
+<br/><br/>
+
+
+## 1.- Crear la infraestructura:
+
+1. Inicializar el proyecto
+```bash
+cd iac
+terraform init
+```
+
+2. Validar sintaxis
+```bash
+terraform validate
+```
+
+3. Planificar el despliegue
+```bash
+terraform plan
+```
+
+4. Crear infraestructura.
+```bash
+terraform apply
+```
+
+5. Destruir infraestructura (opcional)
+```bash
+terraform destroy
+```
+
+## 2.- Desplegar la aplicación:
+
+```bash
+cd app/charts/nginx-mindfactory
+helm dependency build .
+helm upgrade --install nginx-mindfactory . --namespace mindfactory --create-namespace
+```
+## 3.- Desplegar la aplicación:
+
+### Consumir la app:
+
+
+#### Obtener la ip del único nodo
+#IP_NODO=$(kubectl get svc nginx-mindfactory-service-nodeport | awk '{print $5}')
+IP_NODO=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
+
+#### Añade al hosts
+echo "$IP_NODO nginx-mindfactory.local" >> /etc/hosts
+
+#### Acceder
+curl -v http://nginx-mindfactory.local:30080
+
+<br/><br/>
 <br/><br/>
 
 # Estructura Completa
@@ -49,6 +103,9 @@ https://pkg.go.dev/text/template
 │       └── service.yml\
 ├── docs\
 │   └── devops_desafio_tecnico.pdf\
+├── .github
+│   └── workflow
+│       └── deploy.yml
 ├── gitlab-ci\
 ├── iac\
 │   ├── backend.tf\
