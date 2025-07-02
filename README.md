@@ -66,16 +66,17 @@ helm upgrade --install nginx-mindfactory . --namespace mindfactory --create-name
 
 ### Consumir la app:
 
+```bash
+# Obtener la ip del único nodo
 
-#### Obtener la ip del único nodo
-#IP_NODO=$(kubectl get svc nginx-mindfactory-service-nodeport | awk '{print $5}')
 IP_NODO=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
 
-#### Añade al hosts
+# Agregarla al etc/hosts
 echo "$IP_NODO nginx-mindfactory.local" >> /etc/hosts
 
-#### Acceder
+# Pegarle
 curl -v http://nginx-mindfactory.local:30080
+```
 
 <br/><br/>
 <br/><br/>
