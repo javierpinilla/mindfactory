@@ -31,7 +31,8 @@ El tipo de instancia por defecto es t3.micro que es la más barato junto con la 
 
 # Módulo S3
 
-Acá se crea un bucket simple.
+Acá se crea un bucket simple.  
+
 
 
 
