@@ -33,6 +33,8 @@ El tipo de instancia por defecto es t3.micro que es la más barato junto con la 
 
 Acá se crea un bucket simple.
 
+
+
 ### Arquitectura
 La infraestructura implementada sigue una arquitectura de tres capas:
 
