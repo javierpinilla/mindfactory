@@ -45,7 +45,7 @@ variable "disk_size" {
 
 variable "node_market_type" {
   type    = string
-  default = "SPOT"
+  default = "spot"
 }
 
 variable "spot_max_price" {
