@@ -4,5 +4,9 @@
 **/.terraform.lock.hcl
 tfplan
 **/tfplan/*
+tfplan.json
+**/tfplan.json/*
+tfplan*
+**/tfplan*/*
 state
 **/state/*
