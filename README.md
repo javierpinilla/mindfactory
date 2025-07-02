@@ -6,12 +6,12 @@
    #### EKS.
 
 
-# Módulo de VPC.
+### Módulo de VPC.
 
 Este modulo contiene el código Terraform para desplegar una VPC con 3 subnets públicas y 3 subnets privadas. También crea un Internet Gateway para la subnets públicas, un Nat Gateway para las subnet privadas.
 También crea 3 subnets privadas para Rds o ElastiCache. La route table al NatGW está comentado, si se necesita salida a internet, descomentar el attachment de las rt a las estás subnets de rds o elastiCache.
 
-# Módulo EKS
+### Módulo EKS
 
 Con este módulo vamos a crear un cluster eks configurable con un node group y un launch template que define por variables o parámetros, la instancia, la versión, el tamaño del disco, el tipo de ebs. Por defecto usa instancias t3.medium spots, pero esto puede cambiarse en los default de las variables dentro del módulo.
 Se usa la ami mas reciente de amazon-eks-node-x86_64.
@@ -24,16 +24,16 @@ Para el caso de ser necesario usar PVC ebs o efs agregar estás políticas:
 AmazonEBSCSIDriverPolicy
 AmazonEFSCSIDriverPolicy
 
-# Módulo ElastiCache
+### Módulo ElastiCache
 
 Este módulo crea un cluster de ElastiCache (Redis), sin replicación ni autofailover.
 El tipo de instancia por defecto es t3.micro que es la más barato junto con la de arm.
 
-# Módulo S3
+### Módulo S3
 
 Acá se crea un bucket simple.  
 
-
+<br/><br/>
 
 
 ### Arquitectura
