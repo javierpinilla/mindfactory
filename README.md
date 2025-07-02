@@ -3,8 +3,8 @@
   Contiene el workflow para desplegar la app con helm en github actions.
 
 #### app
-  Contiene dos carpetas:
-    charts: Para instalar la app por medio de helm.
+  Contiene dos carpetas:\
+    charts: Para instalar la app por medio de helm.\
     kubectl: Para desplegar los recursos de la app con kubectl, me ayudo para armar el helm.
 
 #### docs
@@ -14,11 +14,19 @@
   Contiene el archivo .gitlab_ci.yml para desplegar la app con helm en gitlab-ci, que es con lo que más experiencia tengo.
 
 #### iac
-  Contiene todo el código en terraform para desplegar la infraestructura.
+  Contiene todo el código en terraform para desplegar la infraestructura.\
   Consultar el Readme dentro.
 
 
-# Estructura del Proyecto
+### Docs de ayuda.
+Estructura de control en helm para saber si un valor es true o false
+https://helm.sh/docs/chart_template_guide/control_structures/
+https://stackoverflow.com/questions/62835605/if-clause-in-helm-chart
+https://pkg.go.dev/text/template
+
+<br/><br/>
+
+# Estructura Completa
 
 ├── app\
 │   ├── charts\
