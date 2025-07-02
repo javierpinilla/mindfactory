@@ -1,3 +1,9 @@
+## Autor
+
+[Javier Pinilla](https://github.com/javierpinilla)  
+[Linkedin](https://www.linkedin.com/in/javieralejandropinilla/)\
+Cloud Engineer | DevOps aficionado
+
 # Estructura de carpetas del Proyecto
 
 #### .github/workflow:
@@ -148,3 +154,17 @@ curl -v http://nginx-mindfactory.local:30080
 │   ├── terraform.tfvars\
 │   └── variables.tf\
 └── README.md\
+
+
+## Licencia
+
+Este proyecto está bajo la licencia **Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)**.
+
+Puedes:
+- Usar, compartir y adaptar este proyecto para **fines educativos o académicos**.
+- Incluir modificaciones siempre que indiques la autoría original.
+
+No puedes:
+- Usar este proyecto o sus derivados para **fines comerciales** sin permiso explícito del autor.
+
+[Más información sobre la licencia aquí](https://creativecommons.org/licenses/by-nc/4.0/ )
