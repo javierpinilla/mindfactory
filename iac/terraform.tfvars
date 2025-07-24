@@ -1,8 +1,8 @@
 region       = "us-east-1"
-project_name = "mindfactory"
+project_name = "challenge_infra"
 environment  = "dev"
 common_tags = {
-  Project     = "mindfactory"
+  Project     = "challenge_infra"
   Environment = "dev"
   Owner       = "jpinilla"
 }
